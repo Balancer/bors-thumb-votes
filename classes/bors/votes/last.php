@@ -7,8 +7,11 @@ class bors_votes_last extends balancer_board_page
 	function body_engine() { return 'body_php'; }
 	function template() { return 'forum/_header.html'; }
 
+	function _access_engine_def() { return \bors_access_public::class; }
+
 	function body_data()
 	{
+		$last = [];
 /*
 		$last = objects_array('bors_votes_thumb', array(
 				'create_time>' => time() - 86400,
